@@ -1,0 +1,6 @@
+
+-> Cool tool to look for changes between versions
+git difftool adimttance.lua
+
+-> Look for this command apparently is for return to the previous version
+git checkout -- admittance

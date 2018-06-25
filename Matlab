@@ -1,0 +1,6 @@
+Matlab
+
+http://ip.kuleuven.be/
+icts.kuleuven.be/license
+
+bsxfun to repeat operation in an array 

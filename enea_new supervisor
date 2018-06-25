@@ -1,0 +1,15 @@
+Eneas Bridge
+
+FIAD inttegration vision - etasl
+
+1. In etasl_ws "$ source/devel/setup.bash"
+2. export $ LUA_PATH="$LUA_PATH;;;/home/cristian/etasl_ws/src/etasl_supervisor/fiad/?.lua"
+2. Run the launch file with the visualization in RVIZ this runs "roscore" (first window)
+3. In fiad_grasping_skills/scripts/deployer Run the deployer of the task "$rttlua -i deploy_fiad ..." (second window)
+4. Run the GUI that simulates the vision part of delft "$ rosrun test_scripts tud_vision.py
+5. export PYTHONPATH=$PYTHONPATH:/home/cristian/etasl_ws/src/etasl_supervisor/py_client (third window "window for the bridge")
+6. Run the bridge in "etasl_supervisor/py_client" $ ./etasl_learning_bridge (forth window)
+7. Check roservice list (fifth window)
+8. Run $ rosservice call /lbdserver/testloadmodule --- This service load all the modules that are in a script take a look
+9. Run $ rosservice call /lbdserver/getobj --- This service request the information of the pose of the object 
+10. If everything works send an event e_start in the deployer

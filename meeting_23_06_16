@@ -1,0 +1,15 @@
+Debugging etasl
+
+$ run ilua.lua
+
+require('context')
+dofile('robot_ur10.lua')
+
+Documentation about etasl compontent
+etasl_rtt_component
+viz_marker
+
+
+udate everythinf .listrepos
+
+gripper brand -> robotiq

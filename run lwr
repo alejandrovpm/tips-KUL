@@ -1,0 +1,16 @@
+Running the lwr
+
+1. First turn on the robot
+
+2. Then put the switch in T1
+
+3. Go to FRI and select FRIOPEN
+
+4. Rlease the break, pressing the "Dead man" and moving one joint
+  - If the moves ar inhibeted go to the blue buttom press it and press aknowledge all
+  - press again the blue bottom
+  - move any joint
+
+5. Run the program etasl program
+
+6. Go to FRI and select FRISTART

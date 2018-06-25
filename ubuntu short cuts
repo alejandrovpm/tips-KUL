@@ -1,0 +1,5 @@
+ctrl r -- type something an you will get the last times that you used those commands
+
+grep -r 'key_word' * ----- It will find the files that contains 'key_word'
+
+ctrl+shift+r (in terminator) ---- you can maximaize the shell.

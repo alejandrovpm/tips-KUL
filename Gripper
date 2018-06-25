@@ -1,0 +1,9 @@
+Gripper functions
+
+Slave_1001.Activate            Slave_1001.SetModePinch        Slave_1001.Status
+Slave_1001.SetFingerForce      Slave_1001.SetModeScissor      Slave_1001.Status.
+Slave_1001.SetFingerVel        Slave_1001.SetModeWide         Slave_1001.checkState
+Slave_1001.SetGripperPos       Slave_1001.SetMotorPos         Slave_1001.configure
+Slave_1001.SetMode             Slave_1001.SetOptions          Slave_1001.getState
+Slave_1001.SetModeBasic        Slave_1001.SetSinus            Slave_1001.requestState
+Slave_1001.SetModeIndipendent  Slave_1001.Start               
