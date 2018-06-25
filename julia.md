@@ -30,6 +30,12 @@ using PyCall
 @pyimport math
 math.sin(math.pi / 4) - sin(pi / 4)  # returns 0.0
 ```
+To add local modules, in the terminal before starting julia
+
+```
+export PYTHONPATH="$PYTHONPATH:<path where is the local module>"
+```
+
 more: <https://github.com/JuliaPy/PyCall.jl>
 
 ### Pyplot
