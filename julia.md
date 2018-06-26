@@ -5,8 +5,20 @@ To install: <https://julialang.org/downloads/>
 ##Help
 To return the documentation of a function just use: `?`
 
+## Functions
+
+* Look type of a variable: `typeof()`
+* Size of the array: `size()`
+* Get a list of current variable `whos()`
+* Concatenate strings: `"string 1" * "string 2"`
+
 
 ##Packages
+
+* To add: `Pkg.add("package")`
+* To build: `Pkg.build("package")`
+* To update: `Pkg.update()`
+
 ### Jupyter
 
 Editor for
@@ -30,13 +42,24 @@ using PyCall
 @pyimport math
 math.sin(math.pi / 4) - sin(pi / 4)  # returns 0.0
 ```
-To add local modules, in the terminal before starting julia
+To build PyCall: `Pkg.build("PyCall")`
 
-```
-export PYTHONPATH="$PYTHONPATH:<path where is the local module>"
-```
+
+To add local modules, in the terminal before starting julia `export PYTHONPATH="$PYTHONPATH:<path where is the local module>"`
+
+For ubuntu: `export PYTHONPATH="$PYTHONPATH:/home/cristian/etasl_ws/src/etasl_motionmodel/scripts/python"`
 
 more: <https://github.com/JuliaPy/PyCall.jl>
+
+####Recommended Python Packages
+
+For better results install them inside python environment embedded in Julia
+
+* `scipy`
+* `numpy`
+* `matpolotlib`
+
+
 
 ### Pyplot
 
@@ -58,4 +81,9 @@ Binary provider for Julia. It is linked to Anaconda but more channels can be add
 ```Julia
 using Conda
 ```
+
+* Add channels: `Conda.add_channel("my_channel")`
+* Add packages: `Conda.add("package")`
 more: <https://github.com/JuliaPy/Conda.jl>
+
+### CSV
