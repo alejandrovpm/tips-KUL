@@ -81,9 +81,13 @@ Binary provider for Julia. It is linked to Anaconda but more channels can be add
 ```Julia
 using Conda
 ```
-
-* Add channels: `Conda.add_channel("my_channel")`
 * Add packages: `Conda.add("package")`
+* Add channels: `Conda.add_channel("my_channel")`
+
 more: <https://github.com/JuliaPy/Conda.jl>
 
-### CSV
+### Interpolations
+
+Interpolations and B-Splines
+
+more: <https://github.com/JuliaMath/Interpolations.jl>
