@@ -51,7 +51,7 @@ For ubuntu: `export PYTHONPATH="$PYTHONPATH:/home/cristian/etasl_ws/src/etasl_mo
 
 more: <https://github.com/JuliaPy/PyCall.jl>
 
-####Recommended Python Packages
+#### Recommended Python Packages
 
 For better results install them inside python environment embedded in Julia
 
@@ -74,6 +74,18 @@ title("A sinusoidally modulated sinusoid")
 
 more: <https://github.com/JuliaPy/PyPlot.jl>
 
+### PlotlyJS
+
+Neat plots
+
+Docs: <http://spencerlyon.com/PlotlyJS.jl/>
+Repo: <https://github.com/sglyon/PlotlyJS.jl>
+
+
+### Rsvg
+
+To save figures in vector formats
+
 ### Conda
 
 Binary provider for Julia. It is linked to Anaconda but more channels can be added.
@@ -81,13 +93,13 @@ Binary provider for Julia. It is linked to Anaconda but more channels can be add
 ```Julia
 using Conda
 ```
-* Add packages: `Conda.add("package")`
-* Add channels: `Conda.add_channel("my_channel")`
 
+* Add channels: `Conda.add_channel("my_channel")`
+* Add packages: `Conda.add("package")`
 more: <https://github.com/JuliaPy/Conda.jl>
 
 ### Interpolations
 
-Interpolations and B-Splines
+Interpolation and B-Splines
 
 more: <https://github.com/JuliaMath/Interpolations.jl>
