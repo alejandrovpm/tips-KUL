@@ -2,7 +2,7 @@
 
 To install: <https://julialang.org/downloads/>
 
-##Help
+## Help
 To return the documentation of a function just use: `?`
 
 ## Functions
@@ -13,7 +13,7 @@ To return the documentation of a function just use: `?`
 * Concatenate strings: `"string 1" * "string 2"`
 
 
-##Packages
+## Packages
 
 * To add: `Pkg.add("package")`
 * To build: `Pkg.build("package")`
@@ -81,7 +81,10 @@ Neat plots
 Docs: <http://spencerlyon.com/PlotlyJS.jl/>
 Repo: <https://github.com/sglyon/PlotlyJS.jl>
 
+To save in vector formats
 
+install *Blink*: `using Blink; Blink.AtomShell.install()`
+install *Rsvg*: `add.Pkg("Rsvg")`
 ### Rsvg
 
 To save figures in vector formats
