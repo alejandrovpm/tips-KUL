@@ -11,6 +11,7 @@ To return the documentation of a function just use: `?`
 * Size of the array: `size()`
 * Get a list of current variable `whos()`
 * Concatenate strings: `"string 1" * "string 2"`
+* Convert range to an array: `collect(range)`
 
 
 ## Packages
