@@ -1,6 +1,6 @@
 # Tips for  GIT
 
-###commands for documentation in the terminal
+### commands for documentation in the terminal
 
 Type in the terminal for documentation about branch, checkout, remote, add, push or others:
 ```
