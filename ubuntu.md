@@ -20,3 +20,7 @@ rosmsg list | grep Wrench
 
 ### Terminator
 * To maximaize the current shell press: *ctrl+shift+r*
+
+### Symbolic links
+In `/usr/local/bin` there are the symbolic links to the executable file.
+* To create one: `sudo ln -s <path of the executable link> /usr/local/bin/<name to execute>`

@@ -1,20 +1,32 @@
-# Tips for Julia
-
+Tips for Julia
+=============================
 To install: <https://julialang.org/downloads/>
 
-## Help
+For ubuntu remember to check the ubuntu tips for the **symbolic links**
+
+ Help
+------------------
 To return the documentation of a function just use: `?`
 
-## Functions
-
+Functions
+----------------------
 * Look type of a variable: `typeof()`
 * Size of the array: `size()`
 * Get a list of current variable `whos()`
 * Concatenate strings: `"string 1" * "string 2"`
 * Convert range to an array: `collect(range)`
 
+Atom
+--------------------------
+Integrated development environment (IDE) **Juno**
 
-## Packages
+For installation: http://docs.junolab.org/latest/man/installation.html
+
+Packages
+---------------
+```Julia
+using Pkg
+```
 
 * To add: `Pkg.add("package")`
 * To build: `Pkg.build("package")`
@@ -34,6 +46,17 @@ more: <https://github.com/JuliaLang/IJulia.jl>
 
 ### Python
 
+#### Install
+
+1. `Pkg.add("PyCall")`
+
+2. Configure **Python 2.7** in julia type:
+  *Ubuntu* : `ENV["PYTHON"] = "/usr/bin/python2.7"`
+  *OSX*:?
+
+3. Build the package `Pkg.build()` and the restart Julia.
+
+#### Using
 ```Julia
 using PyCall
 @pyimport <package>
@@ -59,7 +82,7 @@ For better results install them inside python environment embedded in Julia
 * `scipy`
 * `numpy`
 * `matpolotlib`
-
+* `fastdtw` from `bioconda` channel
 
 
 ### Pyplot
@@ -84,8 +107,8 @@ Repo: <https://github.com/sglyon/PlotlyJS.jl>
 
 To save in vector formats
 
-install *Blink*: `using Blink; Blink.AtomShell.install()`
-install *Rsvg*: `add.Pkg("Rsvg")`
+install *Blink*: `Pkg.add("Blink"); Blink.AtomShell.install()`
+install *Rsvg*: `Pkg.add("Rsvg")`
 ### Rsvg
 
 To save figures in vector formats
@@ -105,5 +128,10 @@ more: <https://github.com/JuliaPy/Conda.jl>
 ### Interpolations
 
 Interpolation and B-Splines
+
+```Julia
+using Interpolations
+```
+
 
 more: <https://github.com/JuliaMath/Interpolations.jl>
