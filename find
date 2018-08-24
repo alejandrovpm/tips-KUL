@@ -1,3 +1,0 @@
-find . -iname "*geometric*"
-
-bind_kdl.cpp 

@@ -1,2 +1,0 @@
-sudo aptitude search rtt | grep geometry-msgs
-rosmsg list | grep Wrench
