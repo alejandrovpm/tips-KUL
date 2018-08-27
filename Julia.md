@@ -2,7 +2,9 @@ Tips for Julia
 =============================
 To install: <https://julialang.org/downloads/>
 
-For ubuntu remember to check the ubuntu tips for the **symbolic links**
+For ubuntu :
+* Ther is not a normal installation, only download the pacage and vreate the **symbolic links** 
+* remember to check the ubuntu tips for the **symbolic links**
 
  Help
 ------------------
