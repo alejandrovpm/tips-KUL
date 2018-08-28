@@ -3,7 +3,7 @@ Tips for Julia
 To install: <https://julialang.org/downloads/>
 
 For ubuntu :
-* Ther is not a normal installation, only download the pacage and vreate the **symbolic links** 
+* Ther is not a normal installation, only download the pacage and vreate the **symbolic links**
 * remember to check the ubuntu tips for the **symbolic links**
 
  Help
@@ -12,11 +12,16 @@ To return the documentation of a function just use: `?`
 
 Functions
 ----------------------
+
+Documentation available in: https://docs.julialang.org/en/
+
 * Look type of a variable: `typeof()`
 * Size of the array: `size()`
 * Get a list of current variable `whos()`
 * Concatenate strings: `"string 1" * "string 2"`
 * Convert range to an array: `collect(range)`
+* Broadcast an operation of a an array over a matrix: `broadcast(<+,-,/,*>,A,a)`
+* For Structures go to composite types in https://docs.julialang.org/en/v0.6.4/manual/types/#man-types-1
 
 Atom
 --------------------------
@@ -134,6 +139,14 @@ Interpolation and B-Splines
 ```Julia
 using Interpolations
 ```
-
-
 more: <https://github.com/JuliaMath/Interpolations.jl>
+
+
+### Dates
+
+Used to get TimeStamp
+info: https://en.wikibooks.org/wiki/Introducing_Julia/Working_with_dates_and_times
+
+### JSON
+
+Package to write and read json files: https://gist.github.com/silgon/0ba43e00e0749cdf4f8d244e67cd9d6a
