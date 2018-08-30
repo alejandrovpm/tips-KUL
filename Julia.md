@@ -29,6 +29,14 @@ Integrated development environment (IDE) **Juno**
 
 For installation: http://docs.junolab.org/latest/man/installation.html
 
+Modules
+--------------------------
+
+To add a path of the Julia Path:
+```Julia
+push!(LOAD_PATH, "/Path/To/My/Module/")
+```
+
 Packages
 ---------------
 ```Julia
