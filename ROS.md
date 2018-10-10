@@ -7,8 +7,8 @@ Link for tutorials: http://wiki.ros.org/ROS/Tutorials
 CATKIN
 -------------
 
-To ignore packages when compailing with ```catkinmake``` in the workspace:
-* Add a file *CATKIN_IGNORE* (you can run ```touch CATKIN_IGNORE``` inside the package folder in the terminal) 
+To ignore packages when compiling with ```catkinmake``` in the workspace:
+* Add a file *CATKIN_IGNORE* (you can run ```touch CATKIN_IGNORE``` inside the package folder in the terminal)
 
 ROSBUILD
 -------------
