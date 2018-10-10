@@ -16,6 +16,20 @@ Git work with two types repositories the ones in a PC/laptop (Local) and the one
 
 ### commands for the terminal
 - check available remote repositories: ```git remote -v```
+## Download/Upload files
+
+### for downloading files from a repository
+1. Change your destination file with ```cd <directory>```.
+2. Download the files from the desired repository by using the following command
+ ```git clone <URL>```
+For example to download from this repository: ```git clone https://github.com/alejandrovpm/tips-KUL```.
+
+### to upload/update files to the master repository
+1. Select the files you want to upload: ```git add <file>```. If you want to add all the files of the current folder instead of just one file: ```git add .```
+2. Record the added files into the local repository: ```git commit -m '<message>'```. The message should be use to describe briefly the changes/updates
+3. Update the files you commited to the remote repository: ```git push origin master```.
+
+In case you want to cancel the commited files, but keep the newer version of the files in the computer, run: ```git reset --soft HEAD^```
 
 ## Branches
 Git work as a tree with multiple branches.
@@ -24,20 +38,8 @@ Git work as a tree with multiple branches.
 
 - Multiple branches are created to develop and test code without damaging the **master** branch.
 
-### For downloading files from a repository
-1. Change your destination file with ```cd <directory>```.
-2. Download the files from the desired repository by using the following command
- ```git clone <URL>```
-For example to download from this repository: ```git clone https://github.com/alejandrovpm/tips-KUL```.
 
-### To upload/update files to the master repository
-1. Select the files you want to upload: ```git add <file>```. If you want to add all the files of the current folder instead of just one file: ```git add .```
-2. Record the added files into the local repository: ```git commit -m '<message>'```. The message should be use to describe briefly the changes/updates
-3. Update the files you commited to the remote repository: ```git push origin master```.
-
-In case you want to cancel the commited files, but keep the newer version of the files in the computer, run: ```git reset --soft HEAD^```
-
-### Branches
+### commands for the terminal
 - To create and change to a new branch: ``` git checkout -b <new-branch> ```.
 - To check available branches: ```git branch -v```.
 - To change to an existing branch: ``` git checkout <existing-branch> ```.
