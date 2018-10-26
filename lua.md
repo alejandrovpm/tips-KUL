@@ -4,14 +4,18 @@
 www.lua.org/pil/contents.html
 This file contains the information presented in the first tutorial (getting started) in the Lua Beginners part.
 
-###dofile() function
-
+## Importing libraries
+### dofile() function
 
 **Syntax:**
 ``` dofile("<filename.lua>")```
 
 **Explanation:**
 After executing the command, all the functions declared in the file will be available to use. In addition, if a function is called inside this file, this will be executed. In other words, is equivalent of pasting the code written in the file instead of calling the dofile() function. This is particularly usefull for testing functions in the lua prompt.
+
+### require() function
+
+Often this function is preferred to imort libraries. It has two differences with respect to the dofile funtion (as can be seen here: www.lua.org/pil/8.1/html )
 
 ### print() function
 
