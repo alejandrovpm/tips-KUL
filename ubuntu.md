@@ -3,7 +3,7 @@ Ubuntu Tips
 -------------
 Terminal
 ----------------
-* To look for the last commands used starting by some letters
+* To look for the last commands used starting by some letters.
 
   * *ctrl r* + fraction of the command
 
