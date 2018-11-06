@@ -1,4 +1,24 @@
 Latex packages and commands
+
+## Git latexdiff
+
+Version control with track changes for latex documents.
+
+- **Note**: To compile the bibiliography, it is better to have the *.bib* file in the git folder.
+
+```
+git latexdiff -b --quiet HEAD~<# commit> --main <file.tex>
+```
+with `git log --oneline` it is possible to show the previous commits.
+
+- `'--help'` help documentation.
+- `-b` to run pdflatex bibtex pdflatex(x2).
+- `-t CFONT` becomes smaller the font of the deleted text
+- `--quite` send all the description to the log files.
+- `--main` main file.
+
+
+
 ===========
 Packages
 --------
@@ -49,13 +69,13 @@ In the preable:
 
 
 \ifdefined\REFRESHFIGURES
-    \usepackage{auto-pst-pdf}%this one is for eps 
+    \usepackage{auto-pst-pdf}%this one is for eps
     \newcommand{\executeiffilenewer}[3]{%
      \ifnum\pdfstrcmp{\pdffilemoddate{#1}}%
      {\pdffilemoddate{#2}}>0%
      {\immediate\write18{#3}}\fi%
     }
-    
+
     \newcommand{\includesvg}[1]{%
      \executeiffilenewer{images/#1.svg}{images/#1.pdf}%
      {inkscape -z -D --file=images/#1.svg %
@@ -65,28 +85,28 @@ In the preable:
     }
 \else
     \usepackage[off]{auto-pst-pdf}
-    
+
     \newcommand{\includesvg}[1]{%
      \input{images/#1.pdf_tex}%
-     } 
+     }
 \fi
 ```
 To add a figure:
 ```
 %%%%%% example
-\begin{figure} 
+\begin{figure}
 \centering
   \def\svgwidth{\columnwidth}% or any other size, e.g. 0.9\columnwidth
   \psfrag{some text}[cc][cc][1]{some other text}, optional, if you made some errors
   \includesvg{image}# image name without extention
   \caption{The test image, exported to PDF \emph{with} \LaTeX\ option.}
-  \label{fig:nicefigure} 
+  \label{fig:nicefigure}
 \end{figure}
 ```
 
 To add a graph (saved in .eps format)
 ```
-\begin{figure} 
+\begin{figure}
 \centering
 \input{filewithPSMACROS}%optional, i normally save all the /psrfrag commands in other files
 \psfragfig[width= \columnwidth]{filename} %filename without .eps
@@ -107,14 +127,14 @@ the referece can be changed as in
 \crefmultiformat{lstlisting}{Listings~#2#1#3}%
 { and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
 ```
-check documentation of the packages for details 
+check documentation of the packages for details
 
 nice fractions and units
 ----
 See [the docs](http://ftp.snt.utwente.nl/pub/software/tex/macros/latex/contrib/units/units.pdf). Allows to write in a nice way the numbers with units; i use it in math mode, also in text
 ```
 $\unitfrac[5]{m}{s}$
-$\unit[1]{m}$ 
+$\unit[1]{m}$
 
 ```
 subfigs
@@ -191,7 +211,7 @@ see [here](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings) for more in
     stepnumber=5,    
     firstnumber=1,
     numberfirstline=true,
-    numbersep=2pt, % how far the line-numbers are from the code 
+    numbersep=2pt, % how far the line-numbers are from the code
     numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
     xleftmargin=5pt,%framexleftmargin=5mm,
     language=lua,
@@ -217,12 +237,12 @@ see [here](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings) for more in
         commentstyle=\color[rgb]{0.133,0.545,0.133},
         stringstyle=\color[rgb]{0.627,0.126,0.941},
 }  
-  
+
 \lstnewenvironment{luaenv}[1][]
-  { \lstset{ 
+  { \lstset{
   label=#1,
   style=luastyle}}{}
-  
+
 
 %%%%%%%
 \lstdefinelanguage{errlua}
@@ -267,7 +287,7 @@ see [here](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings) for more in
     stepnumber=5,    
     firstnumber=1,
     numberfirstline=true,
-    numbersep=2pt, % how far the line-numbers are from the code 
+    numbersep=2pt, % how far the line-numbers are from the code
     numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
     xleftmargin=5pt,%framexleftmargin=5mm,
     language=errlua,
@@ -299,12 +319,12 @@ see [here](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings) for more in
 
 % for a dark grey box around the captions of the listings
 \DeclareCaptionFont{white}{\color{white}}
-\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\columnwidth}{\hspace{0pt}#1#2#3}}} 
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\columnwidth}{\hspace{0pt}#1#2#3}}}
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 \captionsetup[consoleOutputEnv]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 \captionsetup[consoleOutputEnvOneColumn]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 \captionsetup[cPlusPlusEnv]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
-\captionsetup[cPlusPlusEnvOneColumn]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}} 
+\captionsetup[cPlusPlusEnvOneColumn]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 %%%%%%
 
 
@@ -322,7 +342,7 @@ see [here](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings) for more in
 %    stepnumber=5,    
 %    firstnumber=1,
 %    numberfirstline=true,
-%    numbersep=2pt, % how far the line-numbers are from the code 
+%    numbersep=2pt, % how far the line-numbers are from the code
 %    numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
 %    xleftmargin=5pt,%framexleftmargin=5mm,
 
@@ -366,7 +386,7 @@ see [here](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings) for more in
     stepnumber=5,    
     firstnumber=1,
     numberfirstline=true,
-    numbersep=2pt, % how far the line-numbers are from the code 
+    numbersep=2pt, % how far the line-numbers are from the code
     numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
     xleftmargin=5pt,%framexleftmargin=5mm,
     language=json,
@@ -395,12 +415,12 @@ see [here](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings) for more in
     keywordstyle=[2]\color{orange}
       %
 }  
-  
+
 \lstnewenvironment{jsonenv}[1][]
-  { \lstset{ 
+  { \lstset{
   label=#1,
   style=jsonstyle,
 %
   }}{}
-  
+
 ```
