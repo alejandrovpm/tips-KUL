@@ -3,7 +3,7 @@
 Useful tutorial video:
 https://www.youtube.com/watch?v=HVsySz-h9r4
 
-### For help
+### For help 
 
 Type in the terminal for documentation about branch, checkout, remote, add, push or others:
 ```
