@@ -1,6 +1,6 @@
 # Tips for  GIT
 
-Useful tutorial video:
+Useful tutorial video: 
 https://www.youtube.com/watch?v=HVsySz-h9r4
 
 ### For help
