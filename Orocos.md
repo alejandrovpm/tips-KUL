@@ -8,7 +8,7 @@ Useful documentation
 - lua Cookbook: <http://www.orocos.org/wiki/orocos/toolchain/luacookbook>
 - lua RTT bindings: <https://people.mech.kuleuven.be/~orocos/pub/stable/documentation/ocl/v2.3.x/doc-xml/rttlua.html>
 
-## Componetes
+## Components
 
 Orocos components are organized in packages as ROS. To create a component
 

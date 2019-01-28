@@ -3,7 +3,7 @@
 Useful tutorial video:
 https://www.youtube.com/watch?v=HVsySz-h9r4
 
-### For help 
+### For help
 
 Type in the terminal for documentation about branch, checkout, remote, add, push or others:
 ```
@@ -31,7 +31,13 @@ To configure your information to allow other users to see who made the changes:
 This steps will instruct you on how to start controlling the version of your codes in an existing directory. All the files in the directory will now form part of the repository.
 
 1. Go to your existing directory where your codes are stored (use cd command)
-2. Run ``git init`` to create the repository. You should notice that a .git file is created.
+2. Run ``git init`` or ``git init .``to create the repository. You should notice that a .git file is created.
+3. Run ``git add .`` and then ``git commit -m "Initial commit"``
+
+### Ti create/initialize a new remote repository
+After creating the local repository, one can create a remote repository to push the information to the cloud.
+
+``git remote add origin git@gitlab.mech.kuleuven.be:r0742557/test_erwin.git``
 
 ### Stop tracking changes of a local repository
 
@@ -55,7 +61,7 @@ For example to download from this repository: ```git clone https://github.com/al
 ### to upload/update files to the master repository
 1. Select the files you want to upload: ```git add <file>```. If you want to add all the files of the current folder instead of just one file: ```git add .```
 2. Record the added files into the local repository: ```git commit -m '<message>'```. The message should be use to describe briefly the changes/updates
-3. Update the files you commited to the remote repository: ```git push origin master```.
+3. Update the files you commited to the remote repository: ```git push origin master```. There is also this variant: ``git push --set-upstream origin master`` but for the moment I'm not sure about the difference (you should check it yourself)
 
 In case you want to cancel the commited files, but keep the newer version of the files in the computer, run: ```git reset --soft HEAD^```
 

@@ -13,7 +13,7 @@
 ``sudo add-apt-repository ppa:graphics-drivers/ppa``
 ``sudo apt update``
 
-3. Select the latest version and install it.
+3. Select the latest version in the additional drivers GUI and install it.
 
 #### Option 2
 
