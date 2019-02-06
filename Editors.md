@@ -2,7 +2,7 @@
 
 ##ATOM
 
-Atom is a GREAT editor in which you can install additional plugins and include more functionalities to write your code (in many languages), depending on your necessities.
+Atom is a GREAT editor in which you can install additional plugging and include more functionalities to write your code (in many languages), depending on your necessities.
 
 It also works fine with high-resolution monitors in contrast to other editors/IDEs such as Eclipse, where the icons look tiny.
 
@@ -40,6 +40,20 @@ This package can be used in order to replace step 3 of the dbg-gdb. To do so fol
 
 
 **language-lua:** Add color formating to lua code (by default atom doesn't provide it, in contrast to other languages)
+
+**Atom-beautify:** Must have! with ctrl+alt+b it automatically indent the selected file and makes your code look pretty (for a lot of supported languages). If the identation doesn't look good for you, or you see it is slow, there are different modes for each language in the settings.
+
+**Highlight-selected:** When you double click a word it highlights all the existing same words in the document.
+
+**Todo:** You can a lot of todos as:  ``TODO: description`` (it has to be commented in your specific language) and then you can toggle a section in the editor that displays all the TODOS in all the files of the project.
+
+**Teletype:** Allows multiple people to work in the same code at the same time (real time). It is super easy to use, you just copy an address that you give to your colleagues.
+
+**Hydrogen:** Enables live scripts functionalities (like mathematica or jupyter notebooks) directly into Atom for many languages (yes, including c++, Julia, Lua, etc). Also gives you the possibility to include latex functions. Separate each section of code with a commented %%
+
+**Autocomplete-paths:** When you are going to import a library (e.g. require in LUA), you can type more or less the file you want and it autocompletes the proper path.
+
+**linter:** There are linter packages that you can install for each language. This basically tell you on the fly whenever you made a syntax mistake without the necessity of running your code. However, I don't use it because when you run it (using script or from the terminal), the environment also tells you about this mistakes.
 
 ## Texstudio
 
