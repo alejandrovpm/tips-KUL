@@ -34,7 +34,7 @@ This steps will instruct you on how to start controlling the version of your cod
 2. Run ``git init`` or ``git init .``to create the repository. You should notice that a .git file is created.
 3. Run ``git add .`` and then ``git commit -m "Initial commit"``
 
-### Ti create/initialize a new remote repository
+### To create/initialize a new remote repository
 After creating the local repository, one can create a remote repository to push the information to the cloud.
 
 ``git remote add origin git@gitlab.mech.kuleuven.be:r0742557/test_erwin.git``
