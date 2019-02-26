@@ -73,6 +73,11 @@ You can also have double pointers (or a pointer to another pointer), because poi
 
 ``int** ptr = &pointer2;``
 
+In addition, keep in mind this is different:
+
+``const int* a= 5;`` -> This makes the pointer constant, but you can still change the content of the pointer
+``int* const a = 5;`` This makes the value of the pointer constat, but you can still change the pointer (or the address to memory) to point to another variable.
+
 **Pointers to classes:**
 
 Imagine that obj1 is an object of a class named My_Class. You can create a pointer of it like this:
@@ -104,7 +109,8 @@ void Increment(int& value)
 }
 ```
 
-If we don't use a reference, a copy of value is created and used as a local variable. If we pass the reference, we are directly increasing by one the variable passed as a parameter.
+If we don't use a reference, a copy of value is created and used as a local variable. This means that additional memory needs to be allocated, and if the parameter's size is high, it can be a slower process.
+If we pass the reference, we are directly increasing by one the variable passed as a parameter.
 
 ###Static variables and functions
 
@@ -169,6 +175,35 @@ Enums are used to limit a variable or the parameter of a function to set of poss
 Refer to this video to learn how to use them:
 https://www.youtube.com/watch?v=x55jfOd5PEE&index=24&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
 
+###Arrays
+
+**Create an array on the stack:**
+``int example[5];``
+``example[0] = 3;``
+``example[3] = 4;``
+``example[5] = 54;``
+(The rest of the elements are zero)
+
+You can know the number of elements of the array by:
+
+*Method 1:* ``num_elements = sizeof(example) / sizeof(int);`` However this can give future problems, because when you work with pointers you will lose track.
+
+*Method 2:* ``static constant int size = 5;``   ``int* example2 = new int[size];`` You pass the size by a variable and keep track of the size manually. It has to be a static constant since the size of the array must be known at compilation time for the program to allocate the memory (otherwise the compiler wouldn't be able to know it until the variable is created).
+
+**Create an array on the heap:**
+``int* example2 = new int[5];``
+
+If you want to determine the number of elements of example2, you can't use method 1 as in the stack because this is actually a pointer. You must use method 2.
+
+**Array Class (Just for C++11 and beyond):**
+There is an easier (however, less efficient) method of dealing with arrays:
+
+``#include <array>`` Include this header at the beginning as usual
+``std::array<int, 5> example3;`` Creation of an int array of size 5
+``example3.size();`` gives the size of the array
+
+
+
 ###Casses and Structures
 
 Classes and structures are basically the same thing, only that by default the declared properties in classes are private and in structures are public (can be accessed outside the class or an instance of the class). As a recommendation (convection) use classes when you have more complex things with a lot of functions, and structures when you just want a way to organize some primitive data types in an structured way. In that way you can access the structure's properties publicly (without the necessity of any get method), and keep encapsulation just for classes. Or you can just ignore that and do whatever you want :).
@@ -221,3 +256,55 @@ If you create an object on the heap, you have to delete it manually to free the 
 ``delete obj1;``
 
 That delete function will also call the destructor of the class.
+
+**Passing objects as arguments of a function:**
+
+To avoid making a copy of the entire object (which takes time to process and memory allocation), we should pass them as const references:
+
+```
+void function(const Entity& obj1)
+{
+  obj1.funcion1();
+  std::cout << obj1.x << std::endl;
+}
+```
+
+However if we try to call a method from the object, we have to make the promess that the function doesn't change any properties of the object (because we are saying it's a const object). That will throw an error unless we mark the method as const in the definition of the class:
+
+``function() const {};``
+
+If we want the function to be able to modify just one property of the class, the we would neet to mark the property with the keyword *mutable* when defining it.
+
+###Strings
+
+Strings can be created an handled in two ways"
+
+**C fashion:**
+``const char* name_string = "hello";``
+Wich produces a pointer to an array of 6 bytes (a zero null pointer is included so that you can tell where it ends in memory). Equivalently:
+`` const char name_string[6] = { 'h' ,'e', 'l' ,'l' ,'o',0};``
+To change the string you will have to make a copy of it and then change it because it's constant.
+
+**C++ string class in the standard library:**
+```
+#include <iostream>
+#include <string> //don't forget to include
+std::string name_string = "hello";
+```
+
+To append strings:
+``std::string name_string = std::string("hello ") + "world";`` You cannot append them directly because "" is a char array and you cannot add them directly
+
+Other class methods:
+``bool contains = name_string.find("llo") != std::string::npos;`` -> checks if the string contains a substring
+``name_string.size();`` returns the size of the string, in terms of bytes
+
+Pass strings as arguments:
+
+It is better to pass strings as reference, because otherwise they would be copied and that takes extra process and extra memory. We declare it as const as a promess that we will not modify the string (because otherwise the original string passed as a parameter could be modified inside the function because it's a reference).
+```
+void printString(const std::string& name)
+{
+  std::cout << name << std::endl;
+}
+```

@@ -34,10 +34,21 @@ This steps will instruct you on how to start controlling the version of your cod
 2. Run ``git init`` or ``git init .``to create the repository. You should notice that a .git file is created.
 3. Run ``git add .`` and then ``git commit -m "Initial commit"``
 
-### Ti create/initialize a new remote repository
+### To create/initialize a new remote repository
 After creating the local repository, one can create a remote repository to push the information to the cloud.
 
-``git remote add origin git@gitlab.mech.kuleuven.be:r0742557/test_erwin.git``
+The following configures a default remote repository that will be called whenever you push (test_erwin is the name of the repository). The namespace is usually your U or R number (staff or student number)
+``git remote add origin git@gitlab.mech.kuleuven.be:namespace/test_erwin.git``
+
+Then when you want to push the repository, run:
+``git push origin master``
+
+If the repository exists then all the commits of your branch will be pushed. If it does not exists, then it will be created automatically (and also the commits will be pushed).
+
+To use other remote repository then run the following and repeat the previous steps
+``git remote remove origin``
+
+
 
 ### Stop tracking changes of a local repository
 
