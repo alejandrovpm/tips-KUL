@@ -101,6 +101,11 @@ Lua Path
 ```
 "?" is for add all the files with lua extention
 
+You can also add the following line of code at the beginning of your file and modify the local path of the file (it does not modify the path for other files that you run after on the same terminal).
+
+``my_path = ";/home/santiregui/path_folder/?.lua"``
+
+``package.path = package.path .. my_path``
 
 ----------------
 Modules

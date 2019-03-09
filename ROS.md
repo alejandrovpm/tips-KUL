@@ -33,4 +33,12 @@ When you clone a ROS package and save it into the src directory of a workspace, 
 Go to the directory of the workspace (e.g. ``cd catkin_ws``) and run the following line:
 ``rosdep install --from-paths src --ignore-src -r -y``
 
-That will install all the dependencies that are missing and needed to build the project. 
+That will install all the dependencies that are missing and needed to build the project.
+
+##URDF
+
+To convert a Xacro file into a common URDF file run the following:
+
+``rosrun xacro xacro --inorder -o model.urdf model.urdf.xacro``
+
+Be sure that the model.urdf.xacro is the file which contains also the parameter definition (the Xacro file uses some parameters marked with $). Usually this file looks has few lines. 
