@@ -90,7 +90,33 @@ Git work as a tree with multiple branches.
 - To check available local and remote branches: ```git branch -a```.
 - To change to an existing branch: ``` git checkout <existing-branch> ```.
 
-### Differentiation tool
+## Differentiation tool
 A recommended tool for the terminal is _gitk_.
 
 To launch it, go to a repository in the terminal and type ```gitk``` you will see different commits.
+
+## Ignoring files by its extention
+
+Git allows you to define files that you don't want to synchronize i.e. you do not want these files in your remote repository
+
+To do so, first create a file in the root of the repository called **.gitignore**
+
+This file contains in it the files that you do not want to synchronize. You also can define extensions of files that you do not want. For instance a typical file for a repository for latex articles can be:
+
+```
+# Compiled source #
+###################
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.log
+*.out
+*.ps
+*.bak
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+```
+
+This file avoid to synchronize all the auto-generated files with the extensions above.

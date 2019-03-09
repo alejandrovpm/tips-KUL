@@ -23,6 +23,19 @@ Documentation available in: https://docs.julialang.org/en/
 * Broadcast an operation of a an array over a matrix: `broadcast(<+,-,/,*>,A,a)`
 * For Structures go to composite types in https://docs.julialang.org/en/v0.6.4/manual/types/#man-types-1
 
+### Multi-dimensional Arrays
+
+ Documentation available in: https://docs.julialang.org/en/v0.6/manual/arrays/#Comprehensions-1
+
+ #### Concatenation
+ `cat(k,A)` where `k` is the dimension to be concatenated (also see `vcat(A)` and `hcat(A)`)
+
+#### Comprehensions
+I tis meant to speed up the construction of an array of 1-dimension
+`A = [ F(x,y,...) for x=rx, y=ry, ... ]`
+
+
+
 Atom
 --------------------------
 Integrated development environment (IDE) **Juno**
