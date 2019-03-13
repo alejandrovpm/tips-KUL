@@ -6,6 +6,12 @@ Atom is a GREAT editor in which you can install additional plugging and include 
 
 It also works fine with high-resolution monitors in contrast to other editors/IDEs such as Eclipse, where the icons look tiny.
 
+### Nice tricks 
+- Holding *ctrl* and clicking in several parts of the file you can have multiple editting points.
+- Select a word and press the correponding key to open brackets ([],{},(),"",...) the selected word will be inside the brackets
+- Select a word and press *ctrl + d* the next instance of the world will be selected also
+- To duplicate a line press *ctrl + shift + d*
+
 ###Packages to install:
 
 **script:** Enables you to run code (in many languages) directly in the editor and view the results in a window embedded in atom.
@@ -54,6 +60,9 @@ This package can be used in order to replace step 3 of the dbg-gdb. To do so fol
 **Autocomplete-paths:** When you are going to import a library (e.g. require in LUA), you can type more or less the file you want and it autocompletes the proper path.
 
 **linter:** There are linter packages that you can install for each language. This basically tell you on the fly whenever you made a syntax mistake without the necessity of running your code. However, I don't use it because when you run it (using script or from the terminal), the environment also tells you about this mistakes.
+
+**Column-select** Nice package to select blocks of code. In ubuntu just press *alt + shift + up/down/PgUp ...*
+
 
 ## Texstudio
 
