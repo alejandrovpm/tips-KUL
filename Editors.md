@@ -6,11 +6,12 @@ Atom is a GREAT editor in which you can install additional plugging and include 
 
 It also works fine with high-resolution monitors in contrast to other editors/IDEs such as Eclipse, where the icons look tiny.
 
-### Nice tricks 
+### Nice tricks
 - Holding *ctrl* and clicking in several parts of the file you can have multiple editting points.
 - Select a word and press the correponding key to open brackets ([],{},(),"",...) the selected word will be inside the brackets
 - Select a word and press *ctrl + d* the next instance of the world will be selected also
 - To duplicate a line press *ctrl + shift + d*
+- *ctrl + shift + p* will open a search tool for comands (e.g. type script for searching the commands of the script package)
 
 ###Packages to install:
 
@@ -62,6 +63,8 @@ This package can be used in order to replace step 3 of the dbg-gdb. To do so fol
 **linter:** There are linter packages that you can install for each language. This basically tell you on the fly whenever you made a syntax mistake without the necessity of running your code. However, I don't use it because when you run it (using script or from the terminal), the environment also tells you about this mistakes.
 
 **Column-select** Nice package to select blocks of code. In ubuntu just press *alt + shift + up/down/PgUp ...*
+
+**Sublime-Style-Column-Selection** A nicer column selection package than the previous one. Just hold shift while dragging the mouse with the left click. Then anything you type will modify all the rows. 
 
 
 ## Texstudio
