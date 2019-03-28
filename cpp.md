@@ -58,7 +58,7 @@ it is the older way of doing the #pragma once. If a parameter is not defined, th
 ### Pointers and References
 
 **Pointers of primitive data types:**
-Pointers are just integers that contain a memory address that point to a specific data (or variable). They occupy 32 bits (4 bytes) of space when a 32 bits system is used. The addres says where in the memory the data BEGINS. Where it ends depends on the size of the type of data. Basic use:
+Pointers are just integers that contain a memory address that point to a specific data (or variable). They occupy 32 bits (4 bytes) of space when a 32 bits system is used. The address says where in the memory the data BEGINS. Where it ends depends on the size of the type of data. Basic use:
 
 ``int var = 8;``
 ``void* pointer1 = &var;``
@@ -67,7 +67,7 @@ Pointers are just integers that contain a memory address that point to a specifi
 Two pointers are created, which cointain exactly the same information (same addres, same size) because they are both integers with an address. If you want to change the value of the variable var, you can dereference it as follows:
 ``*pointer2 = 3;``
 
-If you do it with pointer2 is not going to work because the compiler doesn't know how much amount of memory to assign to the variable.
+If you do it with pointer1 is not going to work because the compiler doesn't know how much amount of memory to assign to the variable.
 
 You can also have double pointers (or a pointer to another pointer), because pointers are memory stored variables that contain an addres:
 
@@ -202,6 +202,29 @@ There is an easier (however, less efficient) method of dealing with arrays:
 ``std::array<int, 5> example3;`` Creation of an int array of size 5
 ``example3.size();`` gives the size of the array
 
+###Vectors (Array_list or dynamic arrays)
+
+Are arrays with variable size. Each time you add a new element to them, the computer needs to copy the whole array into another memory address, then
+add the new element, and delete the old array.
+
+**To create a new vector:**
+``std::Vector<Type> name_of_vector;``
+The type can be any primitive type (e.g. int, float, double, etc) or any custom (A class or a struct).
+
+To add a new element:
+``name_of_vector.push_back(new_element)``
+
+To obtain an element of the vector (zero based):
+``Type first_element = name_of_vector[0];``
+
+To remove just one element of index i:
+``name_of_vector.erase(name_of_vector.begin() + i)``
+
+To clear all the elements (set the size to 0):
+``name_of_vector.clear();``
+
+To pass them as arguments of a function, normally you want to pass them as const &, to avoid copying them.
+  ``void function(const std::Vector<type>& vec) {}``
 
 
 ###Casses and Structures
