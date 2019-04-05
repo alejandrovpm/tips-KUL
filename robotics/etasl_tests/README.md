@@ -1,0 +1,5 @@
+run
+
+```
+ilua.lua <file>
+```
