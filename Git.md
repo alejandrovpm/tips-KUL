@@ -48,7 +48,34 @@ If the repository exists then all the commits of your branch will be pushed. If 
 To use other remote repository then run the following and repeat the previous steps
 ``git remote remove origin``
 
+### To push to multiple remote repositories at once.
 
+Based on [this forum](http://caseyscarborough.com/blog/2013/08/25/pushing-to-multiple-remotes-using-git/):
+
+If you currently have a remote repository defined as origin, rename it so that you can later on push things just to that one:
+`git remote rename origin github` -> For example, to name it "github"
+
+To add another remote repository:
+`git remote add otherRepo git@gitlab.mech.kuleuven.be:group/local_repo.git` -> Named "otherRepo" for the example
+
+Afterwards, you'll want to set up your origin remote to push to both of these. Issue the following command:
+`git config -e`
+This will open the configuration file (found in .git/config) in your default terminal editor.
+
+Add the following lines to the end of the file:
+
+```
+[remote "origin"]
+  url = git@gitlab.mech.kuleuven.be:group/local_repo.git
+  fetch = +refs/heads/*:refs/remotes/otherRepo/*
+  url = <Your remote github repo URL>
+```
+
+If you do this, each time you perform a `git push origin master`, all the remote repositories included will be updated. If you do a `git pull origin master`, you will be pulling from the first url you provided (in this case the "otherRepo" repository)
+
+You can also push/pull to single repos:
+`git push github master`
+`git push otherRepo master`
 
 ### Stop tracking changes of a local repository
 
