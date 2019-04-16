@@ -89,14 +89,21 @@ You can also push/pull to single repos:
 
 ## Download/Upload files
 
-### for cloning files from a local/remote  repository
+### To clone files from a local/remote  repository
 1. Change your destination file with ```cd <directory>```.
 2. Download the files from the desired repository by using the following command
  `` git clone <URL> ``
 
 For example to download from this repository: ```git clone https://github.com/alejandrovpm/tips-KUL```.
 
-### to upload/update files to the master repository
+### To update the local repository:
+
+To update your local repository from the changes made in a remote one:
+`git pull origin master`
+
+This will update the changes from the repository that is defined as "origin". Pull is equivalent of performing a git fetch + a git merge. The first one brings the changes to your local repo and the second one is for merging both if changes has been performed in both.
+
+### To upload/update files to the master repository
 1. Select the files you want to upload: ```git add <file>```. If you want to add all the files of the current folder instead of just one file: ```git add .```
 2. Record the added files into the local repository: ```git commit -m '<message>'```. The message should be use to describe briefly the changes/updates
 3. Update the files you commited to the remote repository: ```git push origin master```. There is also this variant: ``git push --set-upstream origin master`` but for the moment I'm not sure about the difference (you should check it yourself)
