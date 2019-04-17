@@ -9,3 +9,4 @@ Fancy expressions for articles
 - **Under the assumption that** Important always to state your ssumptions
 - **SE(3)**: Eucledean space
 - **Foster**: Encourage or promote the development of something
+- **Infeasible**: Not possible to do easily or conveniently; impracticable.
