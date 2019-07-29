@@ -154,3 +154,15 @@ This file contains in it the files that you do not want to synchronize. You also
 ```
 
 This file avoid to synchronize all the auto-generated files with the extensions above.
+
+## Latex Maths
+
+In order to be able to visualize Latex Equations in GitLab, use this syntax:
+
+This math is inline $`a^2+b^2=c^2`$. The quotes are only visible in Atom, but when you git push to the gitlab repo they are not visible (although required).
+
+This is on a separate line
+
+```math
+a^2+b^2=c^2
+```
