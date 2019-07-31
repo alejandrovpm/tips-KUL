@@ -48,7 +48,34 @@ If the repository exists then all the commits of your branch will be pushed. If 
 To use other remote repository then run the following and repeat the previous steps
 ``git remote remove origin``
 
+### To push to multiple remote repositories at once.
 
+Based on [this forum](http://caseyscarborough.com/blog/2013/08/25/pushing-to-multiple-remotes-using-git/):
+
+If you currently have a remote repository defined as origin, rename it so that you can later on push things just to that one:
+`git remote rename origin github` -> For example, to name it "github"
+
+To add another remote repository:
+`git remote add otherRepo git@gitlab.mech.kuleuven.be:group/local_repo.git` -> Named "otherRepo" for the example
+
+Afterwards, you'll want to set up your origin remote to push to both of these. Issue the following command:
+`git config -e`
+This will open the configuration file (found in .git/config) in your default terminal editor.
+
+Add the following lines to the end of the file:
+
+```
+[remote "origin"]
+  url = git@gitlab.mech.kuleuven.be:group/local_repo.git
+  fetch = +refs/heads/*:refs/remotes/otherRepo/*
+  url = <Your remote github repo URL>
+```
+
+If you do this, each time you perform a `git push origin master`, all the remote repositories included will be updated. If you do a `git pull origin master`, you will be pulling from the first url you provided (in this case the "otherRepo" repository)
+
+You can also push/pull to single repos:
+`git push github master`
+`git push otherRepo master`
 
 ### Stop tracking changes of a local repository
 
@@ -62,14 +89,21 @@ To use other remote repository then run the following and repeat the previous st
 
 ## Download/Upload files
 
-### for cloning files from a local/remote  repository
+### To clone files from a local/remote  repository
 1. Change your destination file with ```cd <directory>```.
 2. Download the files from the desired repository by using the following command
  `` git clone <URL> ``
 
 For example to download from this repository: ```git clone https://github.com/alejandrovpm/tips-KUL```.
 
-### to upload/update files to the master repository
+### To update the local repository:
+
+To update your local repository from the changes made in a remote one:
+`git pull origin master`
+
+This will update the changes from the repository that is defined as "origin". Pull is equivalent of performing a git fetch + a git merge. The first one brings the changes to your local repo and the second one is for merging both if changes has been performed in both.
+
+### To upload/update files to the master repository
 1. Select the files you want to upload: ```git add <file>```. If you want to add all the files of the current folder instead of just one file: ```git add .```
 2. Record the added files into the local repository: ```git commit -m '<message>'```. The message should be use to describe briefly the changes/updates
 3. Update the files you commited to the remote repository: ```git push origin master```. There is also this variant: ``git push --set-upstream origin master`` but for the moment I'm not sure about the difference (you should check it yourself)
@@ -120,3 +154,15 @@ This file contains in it the files that you do not want to synchronize. You also
 ```
 
 This file avoid to synchronize all the auto-generated files with the extensions above.
+
+## Latex Maths
+
+In order to be able to visualize Latex Equations in GitLab, use this syntax:
+
+This math is inline $`a^2+b^2=c^2`$. The quotes are only visible in Atom, but when you git push to the gitlab repo they are not visible (although required).
+
+This is on a separate line
+
+```math
+a^2+b^2=c^2
+```

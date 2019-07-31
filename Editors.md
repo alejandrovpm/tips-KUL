@@ -1,6 +1,6 @@
-#Editors and IDEs Tips
+# Editors and IDEs Tips
 
-##ATOM
+## ATOM
 
 Atom is a GREAT editor in which you can install additional plugging and include more functionalities to write your code (in many languages), depending on your necessities.
 
@@ -13,7 +13,7 @@ It also works fine with high-resolution monitors in contrast to other editors/ID
 - To duplicate a line press *ctrl + shift + d*
 - *ctrl + shift + p* will open a search tool for comands (e.g. type script for searching the commands of the script package)
 
-###Packages to install:
+### Packages to install:
 
 **script:** Enables you to run code (in many languages) directly in the editor and view the results in a window embedded in atom.
 

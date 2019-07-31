@@ -211,8 +211,12 @@ add the new element, and delete the old array.
 ``std::Vector<Type> name_of_vector;``
 The type can be any primitive type (e.g. int, float, double, etc) or any custom (A class or a struct).
 
-To add a new element:
+To add a new element (inefficient but safe):
 ``name_of_vector.push_back(new_element)``
+This is inefficient because it creates the an empty element in the vector and then copies its values to it (one copy operation)
+
+To add a new element (efficient but can cause problems (e.g. if you have vector of vectors)):
+``name_of_vector.emplace_back(new_element)``
 
 To obtain an element of the vector (zero based):
 ``Type first_element = name_of_vector[0];``
@@ -225,6 +229,18 @@ To clear all the elements (set the size to 0):
 
 To pass them as arguments of a function, normally you want to pass them as const &, to avoid copying them.
   ``void function(const std::Vector<type>& vec) {}``
+
+If you want to add n elements to the vector, first use the reserve function first:
+``name_of_vector.reserve(name_of_vector.size() + n)``
+And then use push_back function n times. This does not change the size of the vector, but instead allocates enough memory to add the n items. If you don't do that, the vector has to be copied, reallocated and deleted n times (very inefficient).
+
+If you want to keep just the n first elements of a vector use resize (the rest will be deleted):
+``name_of_vector.resize(n);``
+In case n is larger than the size of the vector, the resize function will fill the rest of the elements with default values (thus, the size will change).
+
+If you want to insert a new value to a certain position, and move all the elements after that position by one place:
+``name_of_vector.insert(position, val)``
+
 
 
 ###Casses and Structures
