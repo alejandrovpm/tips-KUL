@@ -2,7 +2,7 @@
 
 ## Python virtual environment
 
-###Installation of Jupyter and libraries
+### Python environment with virtualenv
 
 The following installs numpy, scipy and jupyter in a python virtual environment:
 
@@ -43,3 +43,10 @@ To start a the notebook environment in Jupyter
 ```
 jupyter notebook
 ```
+
+### Python environment with miniconda
+* Install https://docs.conda.io/en/latest/miniconda.html
+  This allows you to create an isolated Python environment.
+
+* `conda create --name YOURENVIRONMENT_NAME python=3.6 matplotlib scipy ipython pylint`
+* `conda activate YOURENVIRONMENT_NAME`
