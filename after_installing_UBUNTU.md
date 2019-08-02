@@ -2,7 +2,9 @@
 
 ## NVIDIA drivers (Ubuntu)
 
-Getting your nvidia card working (installation of drivers)
+Getting your nvidia card working (installation of drivers).
+
+If you want to use the NVIDIA GPU just for computations (not for graphics) and can handle graphics with another GPU, you must install the drivers with [Option 3](NVIDIA-drivers.md) and use the option `--no-opengl-files` when executing the runfile.
 
 #### Option 1 (try first)
 1. Open the additional drivers path
@@ -27,7 +29,7 @@ But first check on internet what should be the appropiate driver for your card (
 
 Check the [NVIDIA drivers and CUDA for Ubuntu](NVIDIA-drivers.md) guide.
 
-### For switching between intel and nvidia drivers:
+### Switching between Intel and Nvidia drivers:
 
 Install nvidia prime:
 ``sudo apt-get install nvidia-prime``
