@@ -90,13 +90,13 @@ Lua Path
 ------------------
 
 * To see if the library folder is in the path type in the terminal outside lua environment
-```
+```sh
     export | grep LUA_PATH
     export | grep LUA_CPATH
 ```
 
 * To add the folder to the Lua Path type in the terminal
-```
+```sh
     export LUA_PATH="$LUA_PATH;<path of the folder>/?.lua"					
 ```
 "?" is for add all the files with lua extention
@@ -106,6 +106,28 @@ You can also add the following line of code at the beginning of your file and mo
 ``my_path = ";/home/santiregui/path_folder/?.lua"``
 
 ``package.path = package.path .. my_path``
+
+## Setting Lua Path automatically
+
+When working with CMAKE one can include additional paths in the LUA_PATH or LUA_CPATH when `source devel/setup.bash`. To do that do the following 2 steps:
+
+1. Create a folder named "env-hooks" (convenction) in the source directory where your CMakeList file is saved (ROS package directory in case you use catkin_make). In the directory create a file (e.g. named "10.ramo_skills.sh.develspace.in") with the following content:
+
+```sh
+#!/bin/sh
+
+if [ "x$LUA_PATH" = "x" ]; then
+   LUA_PATH=";"
+fi
+export LUA_PATH="$LUA_PATH;@CMAKE_CURRENT_SOURCE_DIR@/directory_1/?.lua;@CMAKE_CURRENT_SOURCE_DIR@/directory_2/?.lua"
+
+```
+Then include the following line in the CMakeList:
+```
+catkin_add_env_hooks(10.ramo_skills SHELLS sh DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
+```
+
+After you perform catkin_make and then source devel/setup.bash you should have the directories included in your LUA_PATH
 
 ----------------
 Modules
