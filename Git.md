@@ -26,6 +26,19 @@ To configure your information to allow other users to see who made the changes:
 
 ``git config --list`` -> run to check your configuration parameters
 
+### Setting an SSH key to a remote repository
+
+To avoid entering your password each time you push, pull or clone, you can set an SSH key pair.
+
+Click [here](https://gitlab.mech.kuleuven.be/help/ssh/README#generating-a-new-ssh-key-pair) for the instructions (need access to gitlab.mech.kuleuven.be). The one that has worked for me is the RSA type.
+
+If it fails and gives the following error "sign_and_send_pubkey: signing failed: agent refused operation" when cloning and asks the git@gitlab.mech.kuleuven.be's password, try the following in the terminal (that solved it for me after trying a lot of different things)
+
+```sh
+eval `ssh-agent -s`
+ssh-add
+```
+
 ### To create/initialize a new local repository
 
 This steps will instruct you on how to start controlling the version of your codes in an existing directory. All the files in the directory will now form part of the repository.
