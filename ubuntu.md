@@ -24,3 +24,13 @@ rosmsg list | grep Wrench
 ### Symbolic links
 In `/usr/local/bin` there are the symbolic links to the executable file.
 * To create one: `sudo ln -s <path of the executable link> /usr/local/bin/<name to execute>`
+
+### Change gcc version
+
+Sometimes the version of the C and C++ compiler (gcc) can have compatibility issues. For example, to compile etasl, gcc 5.4 or 5.5 is needed. To change it run in the terminal:
+
+```shell
+sudo update-alternatives --config gcc
+```
+
+and then type the corresponding number of the version (according to the logged table)
