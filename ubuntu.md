@@ -27,8 +27,29 @@ In `/usr/local/bin` there are the symbolic links to the executable file.
 
 ### Change gcc version
 
-Sometimes the version of the C and C++ compiler (gcc) can have compatibility issues. For example, to compile etasl, gcc 5.4 or 5.5 is needed. To change it run in the terminal:
-
+Sometimes the version of the C and C++ compiler (gcc) can have compatibility issues. For example, to compile etasl, gcc 5.4 or 5.5 is needed. 
+In order to install several GCC, G++ or GFortran versions, you should add the `ubuntu-toolchain-r/test` repository:
+```shell
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test & sudo apt-get update
+```
+After that, you can install the desired versions like this:
+```shell
+sudo apt-get install gcc-5 g++-5 gfortran-5
+sudo apt-get install gcc-7 g++-7 gfortran-7
+sudo apt-get install gcc-9 g++-9 gfortran-9
+```
+You can then set the alternatives for your GCC compiler.
+First of all, remove any old set alternatives:
+```shell
+sudo update-alternatives --remove-all gcc
+```
+And then set every alternative, with a priority number going from 1 (min) to 100 (max)
+```shell
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 90 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 80 --slave /usr/bin/g++ g++ /usr/bin/g++-9
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+```
+Now you can change your GCC version running in the terminal:
 ```shell
 sudo update-alternatives --config gcc
 ```
