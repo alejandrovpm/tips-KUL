@@ -45,8 +45,15 @@ jupyter notebook
 ```
 
 ### Python environment with miniconda
-* Install https://docs.conda.io/en/latest/miniconda.html
-  This allows you to create an isolated Python environment.
-
-* `conda create --name YOURENVIRONMENT_NAME python=3.6 matplotlib scipy ipython pylint`
-* `conda activate YOURENVIRONMENT_NAME`
+* Install https://docs.conda.io/en/latest/miniconda.html  
+  This allows you to create an isolated Python environment.  
+* To create the environment:   
+`conda create --name YOURENVIRONMENT_NAME python=3.6 matplotlib scipy ipython pylint`  
+* To activate the environment:  
+`conda activate YOURENVIRONMENT_NAME`  
+* To deactivate the environment:  
+`conda deactivate`  
+* To list all your created environments:  
+`conda env list`  
+* To remove an environment:  
+`conda remove --name YOURENVIRONMENT_NAME --all`  
