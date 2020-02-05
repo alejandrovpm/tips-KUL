@@ -138,3 +138,13 @@ loadComponent("tf","rtt_tf::RTT_TF");
 loadComponent("my_component","MyComponent");
 connectServices("my_component","tf");
 ```
+## Automatic Generation of typekits with ROS msgs
+
+Info: https://github.com/orocos/rtt_ros_integration/tree/toolchain-2.9/rtt_roscomm
+
+Run:
+ ```
+rosrun rtt_roscomm create_rtt_msgs my_msgs
+```
+and replace my_msgs with the rospackage containing all the messages. A folder called rtt_my_msgs will be created in the current location of the terminal where you run the code.
+**Note:** The ros package must be in a catkin workspace. You need to source the workspace first.
