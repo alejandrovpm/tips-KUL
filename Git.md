@@ -179,3 +179,34 @@ This is on a separate line
 ```math
 a^2+b^2=c^2
 ```
+# Git Stash
+
+Very good explanation for millenials here:
+https://www.youtube.com/watch?v=KLEDKgMmbBI
+
+**Stash your work:**
+```sh
+git stash save "<Your description>"
+```
+This will "remove" your uncommited changes in the branch and store them as a stash.
+
+**List of stashes:**
+```sh
+git stash list
+```
+
+**Apply the stashed changes**
+You can perform it in any branch (does not matter if you made the changes in a different branch). This will apply the stash to your current branch but keep it in the stash list
+```sh
+git stash apply <optional name of stash>
+```
+**Pop the stashed changes**
+The same as Apply but in addition it removes the stash from the list
+```sh
+git stash pop <optional name of stash>
+```
+**Delete a stash (drop)**
+You can get rid of an stash by:
+```sh
+git stash drop <name of stash>
+```
