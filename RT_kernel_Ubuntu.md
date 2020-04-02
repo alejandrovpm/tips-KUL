@@ -173,6 +173,23 @@ Now run:
 sudo update-grub
 ```
 
+To make sure that you get the option to choose your kernel on each start up, we have to adapt the grub file:
+```
+cd /etc/default && sudo gedit grub
+```
+You must change
+```
+GRUB_TIMEOUT_STYLE=hidden
+```
+to
+```
+GRUB_TIMEOUT_STYLE=menu
+```
+and then update the grub again
+```
+sudo update-grub
+```
+
 Now reboot and you should be able to see the grub-menu. Under “Advanced ubuntu options” you can choose your kernel. The installed kernel (in this case 5.0.21-rt16) should be visible as well as the kernel that you were working with previously.
 
 Once the computer has rebooted, you can check your kernel with the command:
