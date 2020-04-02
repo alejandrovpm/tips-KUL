@@ -11,8 +11,9 @@ The first thing to do is find out what kernel you want to download. Second, you 
 
 To find out what kernel you want, you can visit: https://www.kernel.org/. At the time of writing, the latest stable kernel was 4.19. However, there was not yet a RT patch for this kernel, so I went with 4.18.16 (the latest stable kernel apart from 4.19).
 
-Once you figured out what kernel you need or want, visit: https://mirrors.edge.kernel.org/pub/linux/kernel/. Under “v4.x/” you will find the right kernel version (the name starts with “Linux”). I downloaded the xz file. Next, go one directory back up, go to “projects” then “rt”. There you can find the RT patch corresponding to your kernel `patch-4.18.16-rt9.patch.xz`.
+Once you figured out what kernel you need or want, visit: https://mirrors.edge.kernel.org/pub/linux/kernel/. Under “v5.x/” you will find the right kernel version (the name starts with “Linux”). I downloaded the xz file. Next, go one directory back up, go to “projects” then “rt”. There you can find the RT patch corresponding to your kernel `patch-5.0.21-rt16.patch.xz`.
 
+- Download the packages
 ```
 mkdir -p ~/kernel
 cd ~/kernel
@@ -22,51 +23,33 @@ curl -SLO https://www.kernel.org/pub/linux/kernel/projects/rt/5.0/patch-5.0.21-r
 curl -SLO https://www.kernel.org/pub/linux/kernel/projects/rt/5.0/patch-5.0.21-rt16.patch.sign
 ```
 
+- Decompress the packages:
 ```
 xz -d linux-5.0.21.tar.xz
 xz -d patch-5.0.21-rt16.patch.xz
 ```
 
+- Verify the integrity of the packages:
 ```
 gpg2 --verify linux-5.0.21.tar.sign
-
+```
+This will give you an output like this:
+```
 gpg: assuming signed data in 'linux-5.0.21.tar'
 gpg: Signature made Di 04 Jun 2019 08:02:08 CEST
 gpg:                using RSA key 647F28654894E3BD457199BE38DBBDC86092693E
 gpg: Can't check signature: No public key
 ```
+Add the correct signature by using the RSA key provided by the last command, as:
 ```
 gpg2  --keyserver hkp://keys.gnupg.net --recv-keys 647F28654894E3BD457199BE38DBBDC86092693E
-
-gpg: key 38DBBDC86092693E: 5 duplicate signatures removed
-gpg: key 38DBBDC86092693E: 175 signatures not checked due to missing keys
-gpg: key 38DBBDC86092693E: public key "Greg Kroah-Hartman <gregkh@linuxfoundation.org>" imported
-gpg: no ultimately trusted keys found
-gpg: Total number processed: 1
-gpg:               imported: 1
 ```
-
-```
-gpg2 --verify patch-5.0.21-rt16.patch.sign
-
-gpg: assuming signed data in 'patch-5.0.21-rt16.patch'
-gpg: Signature made Mi 10 Jul 2019 17:17:21 CEST
-gpg:                using RSA key 57892E705233051337F6FDD105641F175712FA5B
-gpg: Can't check signature: No public key
-```
-```
-gpg2  --keyserver hkp://keys.gnupg.net --recv-keys 57892E705233051337F6FDD105641F175712FA5B
-
-gpg: key 7B96E8162A8CF5D1: 114 signatures not checked due to missing keys
-gpg: key 7B96E8162A8CF5D1: public key "Sebastian Andrzej Siewior" imported
-gpg: no ultimately trusted keys found
-gpg: Total number processed: 1
-gpg:               imported: 1
-```
-
+When you re-verify the integrity with
 ```
 gpg2 --verify linux-5.0.21.tar.sign
-
+```
+you will get
+```
 gpg: assuming signed data in 'linux-5.0.21.tar'
 gpg: Signature made Di 04 Jun 2019 08:02:08 CEST
 gpg:                using RSA key 647F28654894E3BD457199BE38DBBDC86092693E
@@ -78,9 +61,33 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 647F 2865 4894 E3BD 4571  99BE 38DB BDC8 6092 693E
 ```
 
+Now we verify the patch:
 ```
 gpg2 --verify patch-5.0.21-rt16.patch.sign
+```
+If we get the following response, take note of the RSA key:
+```
+gpg: assuming signed data in 'patch-5.0.21-rt16.patch'
+gpg: Signature made Mi 10 Jul 2019 17:17:21 CEST
+gpg:                using RSA key 57892E705233051337F6FDD105641F175712FA5B
+gpg: Can't check signature: No public key
+```
+Add the correct signature by using the RSA key provided by the last command, as:
+```
+gpg2  --keyserver hkp://keys.gnupg.net --recv-keys 57892E705233051337F6FDD105641F175712FA5B
 
+gpg: key 7B96E8162A8CF5D1: 114 signatures not checked due to missing keys
+gpg: key 7B96E8162A8CF5D1: public key "Sebastian Andrzej Siewior" imported
+gpg: no ultimately trusted keys found
+gpg: Total number processed: 1
+gpg:               imported: 1
+```
+When you re-verify the integrity with
+```
+gpg2 --verify patch-5.0.21-rt16.patch.sign
+```
+you will get
+```
 gpg: assuming signed data in 'patch-5.0.21-rt16.patch'
 gpg: Signature made Mi 10 Jul 2019 17:17:21 CEST
 gpg:                using RSA key 57892E705233051337F6FDD105641F175712FA5B
@@ -92,7 +99,7 @@ Primary key fingerprint: 6425 4695 FFF0 AA44 66CC  19E6 7B96 E816 2A8C F5D1
      Subkey fingerprint: 5789 2E70 5233 0513 37F6  FDD1 0564 1F17 5712 FA5B
 ```
 
-Patch the kernel
+- Patch the kernel
 ```
 tar xf linux-5.0.21.tar
 cd linux-5.0.21/
