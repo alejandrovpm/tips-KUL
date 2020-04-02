@@ -166,7 +166,7 @@ Check if the install completed correctly by doing:
 cd /boot
 ls
 ```
-The “ls” command should show these three files: “initrd.img-4.18.16-rt9”,   ”vmlinuz-4.18.16-rt9” and “config-4.18.16-rt9”.  
+The “ls” command should show these three files: “initrd.img-5.0.21-rt16”,   ”vmlinuz-5.0.21-rt16” and “config-5.0.21-rt16”.  
 Now run: 
 ```
 sudo update-grub
