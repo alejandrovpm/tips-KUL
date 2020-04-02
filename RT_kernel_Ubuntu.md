@@ -135,11 +135,12 @@ sudo INSTALL_MOD_STRIP=1 make -j4 deb-pkg
 Compiling with `INSTALL_MOD_STRIP=1` can generate modules without debugging information, reducing the size of the kernel. Without that, it may give you a "Couldn't find suitable memory target" error.
 
 The above command creates 4 packages
-* linux-headers-5.0.21-rt16_5.0.21-rt16-1_amd64.deb
-* linux-image-5.0.21-rt16_5.0.21-rt16-1_amd64.deb
-* linux-image-5.0.21-rt16-dbg_5.0.21-rt16-1_amd64.deb
-* linux-libc-dev_5.0.21-rt16-1_amd64.deb
-
+```
+linux-headers-5.0.21-rt16_5.0.21-rt16-1_amd64.deb
+linux-image-5.0.21-rt16_5.0.21-rt16-1_amd64.deb
+linux-image-5.0.21-rt16-dbg_5.0.21-rt16-1_amd64.deb
+linux-libc-dev_5.0.21-rt16-1_amd64.deb
+```
 Check that the Debian packages have been created:
 ```
 cd .. && ls *.deb
@@ -147,7 +148,7 @@ cd .. && ls *.deb
 
 Install the kernel packages: 
 ```
-sudo dpkg -i ../linux-headers-5.0.21-rt16_*.deb ../linux-image-5.0.21-rt16_*.deb
+sudo dpkg -i linux-headers-5.0.21-rt16_*.deb linux-image-5.0.21-rt16_*.deb
 ```
 
 **Option 2 (without Kernel headers):**  
