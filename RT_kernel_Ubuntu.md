@@ -180,10 +180,12 @@ cd /etc/default && sudo gedit grub
 You must change
 ```
 GRUB_TIMEOUT_STYLE=hidden
+GRUB_TIMEOUT=0
 ```
 to
 ```
 GRUB_TIMEOUT_STYLE=menu
+GRUB_TIMEOUT=10
 ```
 and then update the grub again
 ```
