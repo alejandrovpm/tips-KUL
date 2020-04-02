@@ -9,7 +9,7 @@ sudo apt install openssl libssl-dev libncurses-dev gcc make git exuberant-ctags 
 ## Select and download the kernel
 The first thing to do is find out what kernel you want to download. Second, you have to download the patches for that specific kernel. Third build and install the kernel and end with adapting and updating the grub-loader so that you get the choice to boot the realtime or non-realtime kernel.
 
-To find out what kernel you want, you can visit: https://www.kernel.org/. At the time of writing, the latest stable kernel was 4.19. However, there was not yet a RT patch for this kernel, so I went with 4.18.16 (the latest stable kernel apart from 4.19).
+To find out what kernel you want, you can visit: https://www.kernel.org/. At the time of writing, the latest stable kernel was 5.6. However, there was not yet a RT patch for this kernel, so I went with 5.0.21.
 
 Once you figured out what kernel you need or want, visit: https://mirrors.edge.kernel.org/pub/linux/kernel/. Under “v5.x/” you will find the right kernel version (the name starts with “Linux”). I downloaded the xz file. Next, go one directory back up, go to “projects” then “rt”. There you can find the RT patch corresponding to your kernel `patch-5.0.21-rt16.patch.xz`.
 
@@ -135,10 +135,10 @@ sudo INSTALL_MOD_STRIP=1 make -j4 deb-pkg
 Compiling with `INSTALL_MOD_STRIP=1` can generate modules without debugging information, reducing the size of the kernel. Without that, it may give you a "Couldn't find suitable memory target" error.
 
 The above command creates 4 packages
-* linux-headers-5.0.21-rt16-rt9_4.18.16-rt9-rt9-1_amd64.deb
-* linux-image-5.0.21-rt16-rt9_4.18.16-rt9-rt9-1_amd64.deb
-* linux-image-5.0.21-rt16-rt9-dbg_4.18.16-rt9-rt9-1_amd64.deb
-* linux-libc-dev_5.0.21-rt16-rt9-1_amd64.deb
+* linux-headers-5.0.21-rt16_5.0.21-rt16-1_amd64.deb
+* linux-image-5.0.21-rt16_5.0.21-rt16-1_amd64.deb
+* linux-image-5.0.21-rt16-dbg_5.0.21-rt16-1_amd64.deb
+* linux-libc-dev_5.0.21-rt16-1_amd64.deb
 
 Check that the Debian packages have been created:
 ```
@@ -147,7 +147,7 @@ cd .. && ls *.deb
 
 Install the kernel packages: 
 ```
-sudo dpkg -i *.deb
+sudo dpkg -i ../linux-headers-5.0.21-rt16_*.deb ../linux-image-5.0.21-rt16_*.deb
 ```
 
 **Option 2 (without Kernel headers):**  
