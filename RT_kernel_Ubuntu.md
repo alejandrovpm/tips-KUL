@@ -185,7 +185,7 @@ Save the file, exit and run once again:
 ```
 sudo update-grub
 ```
-Now reboot and you should be able to see the grub-menu. Under “Advanced ubuntu options” you can choose your kernel. The installed kernel (in this case 4.18.16-rt9) should be visible as well as the kernel that you were working with previously.
+Now reboot and you should be able to see the grub-menu. Under “Advanced ubuntu options” you can choose your kernel. The installed kernel (in this case 5.0.21-rt16) should be visible as well as the kernel that you were working with previously.
 
 Once the computer has rebooted, you can check your kernel with the command:
 ```
