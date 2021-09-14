@@ -42,7 +42,7 @@ gpg: Can't check signature: No public key
 ```
 Add the correct signature by using the RSA key provided by the last command, as:
 ```
-gpg2  --keyserver hkp://keys.gnupg.net --recv-keys 647F28654894E3BD457199BE38DBBDC86092693E
+gpg --keyserver keyserver.ubuntu.com --recv-key 647F28654894E3BD457199BE38DBBDC86092693E
 ```
 When you re-verify the integrity with
 ```
@@ -74,7 +74,7 @@ gpg: Can't check signature: No public key
 ```
 Add the correct signature by using the RSA key provided by the last command, as:
 ```
-gpg2  --keyserver hkp://keys.gnupg.net --recv-keys 57892E705233051337F6FDD105641F175712FA5B
+gpg --keyserver keyserver.ubuntu.com --recv-key 57892E705233051337F6FDD105641F175712FA5B
 
 gpg: key 7B96E8162A8CF5D1: 114 signatures not checked due to missing keys
 gpg: key 7B96E8162A8CF5D1: public key "Sebastian Andrzej Siewior" imported
